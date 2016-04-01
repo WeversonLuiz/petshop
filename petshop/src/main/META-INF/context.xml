@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context displayName="kyklos" path="/petshop" reloadable="true">
+
+   <Resource 
+      auth="Container" 
+      driverClassName="org.postgresql.Driver"
+      maxActive="30" 
+      maxIdle="5" 
+      name="jdbc/petshop" 
+      username="hmjanet"
+      password="hmjanet"
+      scope="application"
+      type="javax.sql.DataSource" 
+      url="jdbc:postgresql://localhost/petshop"/>
+
+</Context>
