@@ -9,7 +9,9 @@ import javax.servlet.annotation.WebServlet;
 @ServletSecurity(value=@HttpConstraint(rolesAllowed = {"NORMAL"}), httpMethodConstraints={ 
 	@HttpMethodConstraint(value="GET", rolesAllowed="USUARIO"), 
 	@HttpMethodConstraint(value="POST", rolesAllowed={"ADMINISTRADOR", "GERENTE"}) } ) 
-public class InicioServlet extends javax.servlet.http.HttpServlet { 
+public class InicioServlet extends javax.servlet.http.HttpServlet {
+
+	private static final long serialVersionUID = 1L; 
 	//. . . 
 }
 
