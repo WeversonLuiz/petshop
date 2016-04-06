@@ -10,7 +10,7 @@
 <body>
 	<fieldset style="width: 250px">
 		<legend>Login de acesso ao sistema</legend>
-		<form method="POST" action="j_security_check">
+		<form method="post" action="j_security_check">
 			<input type="text" name="j_username">
 			</br>
 			</br>
