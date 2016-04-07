@@ -5,19 +5,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Insert title here</title>
+<title>Login</title>
 </head>
 <body>
 	<fieldset style="width: 250px">
 		<legend>Login de acesso ao sistema</legend>
 		<form method="post" action="j_security_check">
-			<input type="text" name="j_username">
-			</br>
-			</br>
-			<input type="password" name="j_password" autocomplete="off">
-			</br>
-			</br>
-			<input type="button" value="submit">
+			Login:<br><input type="text" name="j_username" size="20"/>
+			<br>
+			Senha:<br><input type="password" name="j_password" size="20"/>
+			<br>
+			<input type="button" value="Entrar"/>
 		</form>
 	</fieldset>
 </body>
