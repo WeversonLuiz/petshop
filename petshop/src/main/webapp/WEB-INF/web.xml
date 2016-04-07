@@ -1,30 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-  <display-name>petshop</display-name>
-   <security-constraint>
-   		<web-resource-collection>
-   			<web-resource-name>simple web resource</web-resource-name>
-   			<url-pattern>/LoginServlet</url-pattern>
-   		</web-resource-collection>
-   		<auth-constraint>
-   			<role-name>users</role-name>
-   		</auth-constraint>
-   		<login-config>
-   			<auth-method>FORM</auth-method>
-   			<form-login-config>
-   				<form-login-page>/login.jsp</form-login-page>
-   				<form-error-page>authentication_error.jsp</form-error-page>
-   			</form-login-config>
-   		</login-config>
-   </security-constraint>
-  
-  
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+	<display-name>petshop</display-name>
+
+	 <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>petshop</web-resource-name>
+			<url-pattern>/administrador/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>ADMINISTRADOR</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>petshop</web-resource-name>
+			<url-pattern>/usuario/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>USUARIO</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/usuario/login.jsp</form-login-page>
+			<form-error-page>/usuario/erro.jsp</form-error-page>
+		</form-login-config>
+	</login-config>
+	<security-role>
+		<role-name>ADMINISTRADOR</role-name>
+	</security-role>
+
+	<security-role>
+		<role-name>USUARIO</role-name>
+	</security-role>
+
 </web-app>
