@@ -16,24 +16,31 @@
 			<url-pattern>/administrador/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
-			<role-name>ADMINISTRADOR</role-name>
+			<role-name>administrador</role-name>
 		</auth-constraint>
 	</security-constraint>
-
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>petshop</web-resource-name>
-			<url-pattern>/usuario/*</url-pattern>
+			<url-pattern>/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
-			<role-name>USUARIO</role-name>
+			<role-name>usuario</role-name>
+			<role-name>administrador</role-name>
 		</auth-constraint>
 	</security-constraint>
+	<resource-ref>
+		<description>Pool de Conexão</description>
+		<res-ref-name>jdbc/petshop</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+	
 	<login-config>
 		<auth-method>FORM</auth-method>
 		<form-login-config>
-			<form-login-page>/usuario/login.jsp</form-login-page>
-			<form-error-page>/usuario/erro.jsp</form-error-page>
+			<form-login-page>/login.jsp</form-login-page>
+			<form-error-page>/erro.jsp</form-error-page>
 		</form-login-config>
 	</login-config>
 	<security-role>
@@ -42,6 +49,10 @@
 
 	<security-role>
 		<role-name>USUARIO</role-name>
+	</security-role>
+	
+	<security-role>
+		<role-name>tomcat</role-name>
 	</security-role>
 
 </web-app>

@@ -1,6 +1,8 @@
 package br.com.senaigo.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.security.Principal;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.HttpConstraint;
@@ -11,10 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/InicioServlet") 
-@ServletSecurity(value=@HttpConstraint(rolesAllowed = {"NORMAL"}), httpMethodConstraints={ 
-	@HttpMethodConstraint(value="GET", rolesAllowed="USUARIO"), 
-	@HttpMethodConstraint(value="POST", rolesAllowed={"ADMINISTRADOR", "GERENTE"}) } ) 
+@WebServlet("/InicioServlet")  
 public class InicioServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
@@ -27,15 +26,29 @@ public class InicioServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		super.doGet(req, resp);
+		Principal userPrincipal = req.getUserPrincipal();
+		String nome = userPrincipal.getName();
+		resp.setContentType("text/html");
+		PrintWriter out = resp.getWriter();
+		out.println("Bem vindo<h3>" + nome +"</h3>");
+		
+		resp.getWriter().write("Ola " + userPrincipal.getName());
+		resp.flushBuffer();
 	}
 	
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
+		
+		Principal userPrincipal = req.getUserPrincipal();
+		String nome = userPrincipal.getName();
+		resp.setContentType("text/html");
+		PrintWriter out = resp.getWriter();
+		out.println("Bem vindo<h3>" + nome +"</h3>");
+		
+		resp.getWriter().write("Ola " + userPrincipal.getName());
+		resp.flushBuffer();
 	}
 	
 	

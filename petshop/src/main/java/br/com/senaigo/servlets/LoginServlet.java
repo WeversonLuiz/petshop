@@ -1,6 +1,8 @@
 package br.com.senaigo.servlets;
 
 import java.io.IOException;
+import java.security.Principal;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +19,10 @@ public class LoginServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Principal userPrincipal = request.getUserPrincipal();
+		
+		response.getWriter().write("Ola " + userPrincipal.getName());
+		response.flushBuffer();
 		
 	}
 

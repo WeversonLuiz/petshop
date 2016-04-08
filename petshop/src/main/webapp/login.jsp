@@ -13,9 +13,9 @@
 		<form method="post" action="j_security_check">
 			Login:<br><input type="text" name="j_username" size="20"/>
 			<br>
-			Senha:<br><input type="password" name="j_password" size="20"/>
+			Senha:<br><input type="password" name="j_password" size="20" autocomplete="off"/>
 			<br>
-			<input type="button" value="Entrar"/>
+			<input type="submit" value="Entrar"/>
 		</form>
 	</fieldset>
 </body>
