@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>sispetshop</display-name>
+  <welcome-file-list>
+    <welcome-file>IndexServlet</welcome-file>
+  </welcome-file-list>
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <realm-name>Memoria</realm-name>
+    <form-login-config>
+      <form-login-page>/login.jsp</form-login-page>
+      <form-error-page>/erro.jsp</form-error-page>
+    </form-login-config>
+  </login-config>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>jsps</web-resource-name>
+      <url-pattern>*.jsp</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>IMPOSSSIBLE</role-name>
+    </auth-constraint>
+  </security-constraint>
+  <resource-ref>
+    <description>Pool de Conexão</description>
+    <res-ref-name>jdbc/petshop</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+  <security-role>
+    <role-name>ADMINISTRADOR</role-name>
+  </security-role>
+  <security-role>
+    <role-name>USUARIO</role-name>
+  </security-role>
+</web-app>
