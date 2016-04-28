@@ -1,3 +1,6 @@
+<%
+	session = request.getSession();
+%>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid"">
     <div class="navbar-header">
@@ -14,13 +17,13 @@
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" >Cadastro <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="CadastroAnimalServlet"><i class="glyphicon glyphicon-user"></i>Animais</a></li>
-          <li><a href="CadastroClienteServlet"><i class="glyphicon glyphicon-shopping-cart"></i>Cliente</a></li>
+          <li><a href="CadastroCliente?action=cliente"><i class="glyphicon glyphicon-shopping-cart"></i>Cliente</a></li>
           <li><a href="ServicosServlet"><i class="glyphicon glyphicon-shopping-cart"></i>Serviços</a></li>
         </ul>
       </li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrar <span class="caret"></span></a>  
         <ul class="dropdown-menu">
-          <li><a href="UsuarioServlet"><i class="glyphicon glyphicon-user"></i>Visualizar clientes</a></li>
+          <li><a href="CadastroCliente?action=listarClientes"><i class="glyphicon glyphicon-user"></i>Visualizar clientes</a></li>
         </ul>
       </li>
     </ul>
@@ -50,12 +53,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="class="data-toggle="modal" data-target="#myModal">Modal Header</h4>
+        <h4 class="class="data-toggle="modal" data-target="#myModal">Logout</h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        <p>Tem certeza que voçê deseja siar?</p>
       </div>
       <div class="modal-footer">
+      	<a href="CadastroCliente?action=sair" class="btn btn-danger"><i class="glyphicons glyphicons-cat"></i>Sair</a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>

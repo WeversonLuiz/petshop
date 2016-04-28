@@ -1,11 +1,14 @@
 package persistence;
 import javax.persistence.EntityManager;
 
+import util.EMConnection;
+import util.PetshopException;
+
 public class Persistencia <E>{
 	private Class<E> classe;
 	protected EntityManager em;
 	
-	public Persistencia(Class<E> classe){
+	public Persistencia(Class<E> classe) {
 		this.classe = classe;
 		em = EMConnection.createEM();
 	}
@@ -13,64 +16,57 @@ public class Persistencia <E>{
 	public void abrirTransacao(){
 		em.getTransaction().begin();
 	}
-
-	public void close(){
-		em.close();
-	}
 	
-	public void commit(){
+	public void commitTransacao(){
 		em.getTransaction().commit();
 	}
 	
-	public void rollback(){
-		em.getTransaction().rollback();
+	public void fechar(){
+		em.close();
 	}
 	
-	public void insert(E model){
-		try{
-			this.abrirTransacao();
-			em.persist(model);
-			this.commit();
-		}catch(Exception ex){
-			this.rollback();
-		}finally {
-			this.close();
+
+	public void incluir(E v) throws PetshopException{
+		try {
+			if (em == null) {
+				em = EMConnection.createEM();
+			}
+			abrirTransacao();
+			em.merge(v);
+			commitTransacao();
+		} catch (Exception e) {
+			throw new PetshopException("Erro ao realizar a inclusão");
 		}
 	}
 	
-	public void delete(Object id){
-		try{
-			this.abrirTransacao();
-			E model = em.find(classe, id);
-			em.remove(model);
-			this.commit();
-		}catch(Exception ex){
-			this.rollback();
-		}finally{
-			this.close();
+	public void excluir(Object id) throws PetshopException{
+		try {
+			abrirTransacao();
+			E obj = em.find(classe, id);
+			em.remove(obj);
+			commitTransacao();
+		} catch (Exception e) {
+			throw new PetshopException("Erro ao realizar a exclusão");
 		}
 	}
 	
-	public E update(E model) throws Exception{
-		try{
-			this.abrirTransacao();
-			E obj = em.merge(model);
-			this.commit();
+	public E alterar(E v) throws PetshopException{
+		try {
+			abrirTransacao();
+			E obj = em.merge(v);
+			commitTransacao();
 			return obj;
-		}catch(Exception e){
-			this.rollback();
-			throw new Exception("");
-		}finally{
-			this.close();
+		} catch (Exception e) {
+			throw new PetshopException("Erro ao realizar a alteração");
 		}
 	}
 	
-	public E find(Object id) throws Exception{
-		try{
+	public E consultar(Object id) throws PetshopException{
+		try {
 			return em.find(classe, id);
-		}catch(Exception ex){
-			throw new Exception("");
+		} catch (Exception e) {
+			throw new PetshopException("Erro ao realizar a consulta");
 		}
 	}
-	
+
 }

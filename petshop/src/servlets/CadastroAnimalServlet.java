@@ -22,37 +22,19 @@ import persistence.ClienteDao;
 public class CadastroAnimalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	private Animal animal = new Animal();
-	private AnimalDao animalDao = new AnimalDao();
+	
 	
     public CadastroAnimalServlet() {
         super();
     }
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("cadastroAnimais.jsp").forward(request, response);;
+		request.getRequestDispatcher("cadastroAnimais.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		animal.setRaca(request.getParameter("raca"));
-		animal.setCor(request.getParameter("cor"));
-		animal.setNomeAnimal(request.getParameter("animal"));
-		animal.setPeso(Double.parseDouble(request.getParameter("peso")));
 		
-		if (animal != null) {
-			animalDao.inserirAnimal(animal);
-			RequestDispatcher rd = request.getRequestDispatcher("cadastroAnimais.jsp");
-			rd.forward(request, response);
-		}
 		
 	}
 
-	public Animal getAnimal() {
-		return animal;
-	}
-
-	public void setAnimal(Animal animal) {
-		this.animal = animal;
-	}
-	
 }

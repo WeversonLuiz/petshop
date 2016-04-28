@@ -22,6 +22,7 @@
     </web-resource-collection>
     <auth-constraint>
       <role-name>IMPOSSSIBLE</role-name>
+      <role-name>ADMINISTRADOR</role-name>
     </auth-constraint>
   </security-constraint>
   <resource-ref>

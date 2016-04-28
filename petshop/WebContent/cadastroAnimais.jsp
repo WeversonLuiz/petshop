@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script language="JavaScript" type="text/javascript" src="js/carregarFrame.js"></script>
 <link rel=stylesheet href="css/estilo.css">
 <title>Insert title here</title>
 </head>
@@ -20,7 +19,7 @@
 	<div class="container" style="padding-top: 80px;">
         <div class="row">
             <div class="container">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <h1>Cadastro de animais</h1>
                     <p>Preencha os campos abaixo informando os dados corretamente</p>
                     <br />

@@ -1,4 +1,5 @@
 package model;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -26,10 +27,18 @@ public class Cliente {
 	private String cpf;
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	private List<Animal> animais;
+	private List<Animal> animais = new ArrayList<>();
 	
 	public Cliente(){
 		
+	}
+	
+	public void adicionarAnimais(Animal animal){
+		if (!animais.contains(animal)) {
+			animais.add(animal);
+		}else {
+			System.out.println("Animal ja cadastrado");
+		}
 	}
 
 //	public Usuario getUsuario() {

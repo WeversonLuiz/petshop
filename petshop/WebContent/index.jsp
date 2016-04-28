@@ -19,6 +19,5 @@
 <body>
 	<%@ include file="menuTopo.jsp" %>
 	
-	CONTEUDO INDEX
 </body>
 </html>
