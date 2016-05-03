@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -18,7 +19,8 @@ public class Cliente {
 	@SequenceGenerator(name="cliente_seq", sequenceName="cliente_seq", allocationSize=1, initialValue=1)
 	private int idCliente;
 	
-	//private Usuario usuario;
+	@OneToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
+	private Usuario usuario;
 	
 	private String nome;
 	
@@ -40,14 +42,6 @@ public class Cliente {
 			System.out.println("Animal ja cadastrado");
 		}
 	}
-
-//	public Usuario getUsuario() {
-//		return usuario;
-//	}
-//
-//	public void setUsuario(Usuario usuario) {
-//		this.usuario = usuario;
-//	}
 
 	public int getIdCliente() {
 		return idCliente;
@@ -88,5 +82,14 @@ public class Cliente {
 	public void setAnimais(List<Animal> animais) {
 		this.animais = animais;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 	
 }

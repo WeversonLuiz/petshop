@@ -25,21 +25,33 @@
                     <form class="form-horizontal" method="post" action="CadastroCliente" role="form" >
                     <input type="hidden" name="action" value="salvar"/>
                         <div class="form-group">
-                            <label for="nomeCliente" class="col-sm-3 control-label">Nome</label>
+                            <label for="nomeCliente" class="col-sm-1 control-label">Nome</label>
                             <div class="col-sm-6">
                                 <input type="text" class="form-control" id="nomeCliente" name="nomeCliente" value="${cliente.nome}" placeholder="Digite aqui o seu nome" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="cpf" class="col-sm-3 control-label">CPF</label>
+                            <label for="cpf" class="col-sm-1 control-label">CPF</label>
                             <div class="col-sm-6">
                                 <input type="text" id="cpf" class="form-control" name="cpf" value="${cliente.cpf}" placeholder="Digite o seu CPF" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="telefone" class="col-sm-3 control-label">telefone</label>
+                            <label for="telefone" class="col-sm-1 control-label">telefone</label>
                             <div class="col-sm-6">
                                 <input type="text" id="telefone" class="form-control" name="telefone" value="${cliente.telefone }" placeholder="EX: (22)2222-2222" />
+                            </div>
+                        </div>
+ 						<div class="form-group">
+                            <label for="login" class="col-sm-1 control-label">Login</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="login" name="login" value="${cliente.usuario.login}" placeholder="Digite aqui o seu nome" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="senha" class="col-sm-1 control-label">Senha</label>
+                            <div class="col-sm-6">
+                                <input type="password" id="senha" class="form-control" name="senha" value="${cliente.usuario.senha}" placeholder="Digite sua senha" />
                             </div>
                         </div>
                         <div class="col-md-4">

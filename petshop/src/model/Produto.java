@@ -14,6 +14,7 @@ public class Produto {
     private int id;
     private String descricao;
     private double preco;
+    private boolean servico;
      
     public boolean equals(Object obj) {
         try {
@@ -39,5 +40,12 @@ public class Produto {
     public int getId() {
         return id;
     }
+	public boolean isServico() {
+		return servico;
+	}
+	public void setServico(boolean servico) {
+		this.servico = servico;
+	}
+    
      
 }

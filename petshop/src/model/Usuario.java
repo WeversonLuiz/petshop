@@ -1,49 +1,66 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
-//@Entity
+@Entity
 public class Usuario {
 	
-//	@Id
-//	@GeneratedValue(generator="usuario_seq", strategy=GenerationType.SEQUENCE)
-//	@SequenceGenerator(name="usuario_seq", sequenceName="usuario_seq", allocationSize=1, initialValue=1)
-	private int idUsuario;
+	@Id
+	@GeneratedValue(generator="usuario_seq", strategy=GenerationType.SEQUENCE)
+	@SequenceGenerator(name="usuario_seq", sequenceName="usuario_seq", allocationSize=1, initialValue=1)
+	private int id;
 	
-	private int login;
+	private String login;
 	
-	private int senha;
+	private String senha;
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private List<Role> roles = new ArrayList<>();
 	
 	public Usuario(){
 		
 	}
 
-	public int getIdUsuario() {
-		return idUsuario;
+	public int getId() {
+		return id;
 	}
 
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public int getLogin() {
+	public String getLogin() {
 		return login;
 	}
 
-	public void setLogin(int login) {
+	public void setLogin(String login) {
 		this.login = login;
 	}
 
-	public int getSenha() {
+	public String getSenha() {
 		return senha;
 	}
 
-	public void setSenha(int senha) {
+	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 	
 }
