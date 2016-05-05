@@ -1,13 +1,13 @@
 <%
 	session = request.getSession();
 %>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" navbar-fixed-top" role="navigation">
   <div class="container-fluid"">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">PetShop</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="InicioServlet">Home</a></li>
+      <li class="active"><a href="inicio.jsp">Home</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" >Agendamento <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="NovoAgendamentoServlet"><i class="glyphicon glyphicon-plus-sign"></i>Novo agendamento</a></li>
@@ -43,8 +43,6 @@
         </ul>
        </li>     
      </ul>
-    </ul>
-  </div>
   <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">

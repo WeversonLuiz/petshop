@@ -12,9 +12,22 @@ public class Produto {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="produto_seq")
     @SequenceGenerator(name="produto_seq", sequenceName="produto_seq", allocationSize=1, initialValue=1)
     private int id;
+    
+    private String codigo;
+    
     private String descricao;
+    
     private double preco;
-    private boolean servico;
+    
+    private byte[] imagem;
+    
+    private Boolean servico;
+    
+    private Boolean ativo;
+    
+    public Produto(){
+    	
+    }
      
     public boolean equals(Object obj) {
         try {
@@ -25,7 +38,16 @@ public class Produto {
         }
     }
  
-    public String getDescricao() {
+    public int getId() {
+    	return id;
+    }
+    public String getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+	public String getDescricao() {
         return descricao;
     }
     public void setDescricao(String descricao) {
@@ -37,15 +59,29 @@ public class Produto {
     public void setPreco(double preco) {
         this.preco = preco;
     }
-    public int getId() {
-        return id;
-    }
-	public boolean isServico() {
+	public Boolean isServico() {
 		return servico;
 	}
-	public void setServico(boolean servico) {
+	public void setServico(Boolean servico) {
 		this.servico = servico;
 	}
-    
+
+	public Boolean isAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
+
+	public byte[] getFoto() {
+		return imagem;
+	}
+
+	public void setImagem(byte[] imagem) {
+		this.imagem = imagem;
+	}
+	
+	
      
 }
