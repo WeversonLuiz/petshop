@@ -83,6 +83,8 @@ public class ProdutoServlet extends HttpServlet {
     	produto.setCodigo(request.getParameter("codigo"));
     	produto.setDescricao(request.getParameter("descricao"));
     	produto.setPreco(Double.parseDouble(request.getParameter("preco")));
+    	
+    	
 //    	B
 //    	manipulaImagem.getImgBytes(image);
 //    	produto.setImagem(Byte.parseByte[](request.getParameter("input7[]")));

@@ -16,10 +16,10 @@ import persistence.ProdutoDao;
 import util.PetshopException;
 
 /**
- * Servlet implementation class IndexServlet
+ * Servlet implementation class InicioServlet
  */
-@WebServlet("/IndexServlet")
-public class IndexServlet extends HttpServlet {
+@WebServlet()
+public class IndexServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private ProdutoDao produtoDao = new ProdutoDao();
@@ -27,7 +27,7 @@ public class IndexServlet extends HttpServlet {
 //	private List<Produto> listaProdutos = new ArrayList<>();
 	HttpSession session;
 
-    public IndexServlet() {
+    public IndexServlet2() {
         super();
     }
     

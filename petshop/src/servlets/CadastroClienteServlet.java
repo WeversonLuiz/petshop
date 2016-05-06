@@ -49,9 +49,7 @@ public class CadastroClienteServlet extends HttpServlet {
     		if (action != null && action.equalsIgnoreCase("excluirCliente")) {
 				excluirCliente(request, response);
 			}
-    		if (action != null && action.equalsIgnoreCase("sair")) {
-				logout(request, response);
-			}
+    
         } else if("POST".equalsIgnoreCase(method)){
         	if (action.equalsIgnoreCase("salvar")) {
 				salvarCadastro(request, response);
@@ -154,15 +152,5 @@ public class CadastroClienteServlet extends HttpServlet {
 		}
     }
     
-    private void logout(HttpServletRequest request, HttpServletResponse response) {
-    	try {
-    		session.invalidate();
-    		request.getRequestDispatcher("inicio.jsp").forward(request, response);
-		} catch (ServletException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 	
 }

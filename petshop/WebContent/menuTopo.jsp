@@ -57,7 +57,7 @@
         <p>Tem certeza que voçê deseja siar?</p>
       </div>
       <div class="modal-footer">
-      	<a href="CadastroCliente?action=sair" class="btn btn-danger"><i class="glyphicons glyphicons-cat"></i>Sair</a>
+      	<a href="InicioServlet?action=sair" class="btn btn-danger"><i class="glyphicons glyphicons-cat"></i>Sair</a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
