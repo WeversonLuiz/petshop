@@ -1,0 +1,142 @@
+/* css login interno*/
+
+.navbar .pull-right>li>.dropdown-menu, .navbar .nav>li>.dropdown-menu.pull-right {
+    left: auto;
+    right: 0;
+}
+
+.nav-pills .dropdown-menu {
+    margin-top: 4px;
+}
+
+.open>.dropdown-menu {
+    display: block;
+}
+
+.nav-pills .dropdown-menu {
+    /*-webkit-border-radius: 6px;
+    -moz-border-radius: 6px;*/
+    border-radius: 6px;
+}
+
+.dropdown-menu {
+    z-index: 2000;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    float: left;
+    min-width: 160px;
+    margin: 2px 0 0;
+    list-style: none;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    background-clip: padding-box;
+}
+
+li {
+    line-height: 20px;
+}
+user agent stylesheet
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+li {
+    text-align: -webkit-match-parent;
+}
+
+.navbar .pull-right>li>.dropdown-menu:before, .navbar .nav>li>.dropdown-menu.pull-right:before {
+    left: auto;
+    right: 12px;
+}
+
+.navbar .nav>li>.dropdown-menu:before {
+    content: '';
+    display: inline-block;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #ccc;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: -7px;
+    left: 9px;
+}
+
+.navbar .nav>li>.dropdown-menu:after {
+    content: '';
+    display: inline-block;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #ffffff;
+    position: absolute;
+    top: -6px;
+    left: 10px;
+}
+
+input, textarea, keygen, select, button {
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+    font: 13.3333px Arial;
+}
+user agent stylesheet
+input, textarea, keygen, select, button, meter, progress {
+    -webkit-writing-mode: horizontal-tb;
+}
+
+.the-icons li {
+    width: 12.5%;
+  }
+}
+  
+.the-buttons > li {
+  float: left;
+  height: 80px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  line-height: 1.25;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 -1px -1px 0;
+}
+  
+.the-icons .glyphicon {
+  display: block;
+  margin: 5px auto;
+  vertical-align: middle;
+  margin-right: 3px;
+  font-size: 24px;
+}
+
+.the-icons li {
+  float: left;
+  width: 100px;
+  height: 110px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  line-height: 1.25;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.the-icons, .the-buttons {
+	list-style:none;
+}
+
+.the-icons .glyphicon {
+	display:inline;
