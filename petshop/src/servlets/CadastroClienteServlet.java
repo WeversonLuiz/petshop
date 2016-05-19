@@ -105,6 +105,8 @@ public class CadastroClienteServlet extends HttpServlet {
     	cliente.setCpf(request.getParameter("cpf"));
     	cliente.setTelefone(request.getParameter("telefone"));
     	
+    	request.getParameter("file");
+    	
     	if (cliente != null) {
 			try {
 				clienteDao.alterar(cliente);

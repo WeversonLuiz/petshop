@@ -1,6 +1,8 @@
 package servlets;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.Cliente;
 import model.Produto;
+
+import org.apache.commons.fileupload.FileItem;
+import org.apache.tomcat.util.http.fileupload.RequestContext;
+import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+
 import persistence.ProdutoDao;
 import util.ManipulaImagem;
 import util.PetshopException;
@@ -34,6 +41,12 @@ public class ProdutoServlet extends HttpServlet {
 	private List<Produto> listaProdutos = new ArrayList<>();
 	
 	ManipulaImagem manipulaImagem = new ManipulaImagem();
+	
+	private static final String UPLOAD_DIRECTORY = "image_upload";
+	    // upload settings
+    private static final int MEMORY_THRESHOLD = 1024 * 1024 * 3;  // 3MB
+    private static final int MAX_FILE_SIZE = 1024 * 1024 * 40; // 40MB
+    private static final int MAX_REQUEST_SIZE = 1024 * 1024 * 50; // 50MB
 	
 	HttpSession session;
 	
@@ -84,6 +97,7 @@ public class ProdutoServlet extends HttpServlet {
     	produto.setDescricao(request.getParameter("descricao"));
     	produto.setPreco(Double.parseDouble(request.getParameter("preco")));
     	
+
     	
 //    	B
 //    	manipulaImagem.getImgBytes(image);
@@ -123,6 +137,79 @@ public class ProdutoServlet extends HttpServlet {
 	private void listarProduto() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void tratarImagem(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		PrintWriter out = response.getWriter();
+		 // checks if the request actually contains upload file
+        if (!ServletFileUpload.isMultipartContent(request)) {
+            // if not, we stop here
+            PrintWriter writer = response.getWriter();
+            writer.println("Error: Form must has enctype=multipart/form-data.");
+            writer.flush();
+            return;
+        }
+
+        // configures upload settings
+        DiskFileItemFactory factory = new DiskFileItemFactory();
+        // sets memory threshold - beyond which files are stored in disk
+        factory.setSizeThreshold(MEMORY_THRESHOLD);
+        // sets temporary location to store files
+        factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
+
+        ServletFileUpload upload = new ServletFileUpload(factory);
+
+        // sets maximum size of upload file
+        upload.setFileSizeMax(MAX_FILE_SIZE);
+
+        // sets maximum size of request (include file + form data)
+        upload.setSizeMax(MAX_REQUEST_SIZE);
+
+        // constructs the directory path to store upload file
+        // this path is relative to application's directory
+        String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIRECTORY;
+
+        // creates the directory if it does not exist
+        File uploadDir = new File(uploadPath);
+        if (!uploadDir.exists()) {
+            uploadDir.mkdir();
+        }
+
+        try {
+            @SuppressWarnings("unchecked")
+            List<FileItem> formItems = (List)upload.parseRequest((RequestContext) request);
+            String fileName1 = "";
+            if (formItems != null && formItems.size() > 0) {
+            	for (FileItem item : formItems) {
+            	    // processes only fields that are not form fields
+            	    if (!item.isFormField()) {
+            	        String fileName = new File(item.getName()).getName();
+            	        fileName1+=fileName;
+            	        String filePath = uploadPath + File.separator + fileName;
+            	        File storeFile = new File(filePath);
+            	        // saves the file on disk
+            	        item.write(storeFile);
+            	    } else {
+            	        //here...
+            	        String fieldname = item.getFieldName();
+            	        String fieldvalue = item.getString();
+            	        if (fieldname.equals("p_data")) {
+            	            //logic goes here...
+            	        } else if (fieldname.equals("upload_wall_gallery")) {
+            	            //next logic goes here...
+            	        }
+            	    }
+                }
+            }
+            String p_text = request.getParameter("p_data");
+            String gallery_nm = request.getParameter("upload_wall_gallery");
+            out.println(p_text);
+            out.println(gallery_nm);
+            //out.println("Upload has been done successfully!"+fileName1);
+        } catch (Exception ex) {
+            out.println(ex.getMessage());
+        }
+
 	}
 
 

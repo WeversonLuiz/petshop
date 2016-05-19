@@ -12,12 +12,20 @@
     <meta name="author" content="">
 
     <title>Petshop</title>
+    
+	<link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<link rel=stylesheet href="css/estilo.css">
 
     <!-- Bootstrap Core CSS -->
+	<link rel=stylesheet href="css/loginmenu.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/shop-homepage.css" rel="stylesheet">
+    
+    <script src="js/login2.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,8 +46,8 @@
             <div class="col-md-3">
                 <p class="lead">Petshop Online</p>
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Produtos</a>
-                    <a href="#" class="list-group-item">Serviços</a>
+                    <a href="cadastroProduto.jsp" class="list-group-item">Produtos</a>
+                    <a href="sevicos.jsp" name="sevicos" class="list-group-item">Serviços</a>
                 </div>
             </div>
 
@@ -56,13 +64,13 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <img class="slide-image" src="img/casinha.jpg" alt="">
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <img class="slide-image" src="img/casinha-morango.jpg" alt="">
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                    <img class="slide-image" src="img/cama-nylon.jpg" alt="">
                                 </div>
                             </div>
                             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">

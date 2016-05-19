@@ -33,7 +33,7 @@
                         <h1>Cadastro de produtos</h1>
                         <p>Preencha os campos abaixo informando os dados corretamente</p>
                         <br />
-                        <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/ProdutoServlet" role="form" name="formProduto" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="post" action="ProdutoServlet?action=salvar" role="form" name="formProduto" >
                         <input type="hidden" name="action" value="salvar"/>
                             <div class="form-group">
                                 <label for="codigo" class="col-sm-3 control-label">Código</label>

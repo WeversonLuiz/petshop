@@ -22,7 +22,7 @@
                     <h1>Cadastro de clientes</h1>
                     <p>Preencha os campos abaixo informando os dados corretamente</p>
                     <br />
-                    <form class="form-horizontal" method="post" action="CadastroCliente" role="form" >
+                    <form class="form-horizontal" method="post" action="CadastroCliente" role="form">
                     <input type="hidden" name="action" value="salvar"/>
                         <div class="form-group">
                             <label for="nomeCliente" class="col-sm-1 control-label">Nome</label>

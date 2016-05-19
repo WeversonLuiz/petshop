@@ -13,8 +13,13 @@ public class ProdutoDao extends Persistencia<Produto>{
 		super(Produto.class);
 	}
 	
-	public List<Produto> listar() throws PetshopException{
+	public List<Produto> listar()throws PetshopException{
 		Query query = em.createQuery("select p from Produto p");
+		return query.getResultList();
+	}
+
+	public List<Produto> listarServicos()throws PetshopException{
+		Query query = em.createQuery("select p from Produto p where p.servico is true");
 		return query.getResultList();
 	}
 
